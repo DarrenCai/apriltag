@@ -108,6 +108,11 @@ if(OpenCV_FOUND)
     target_link_libraries(opencv_demo apriltag ${OpenCV_LIBRARIES})
     set_target_properties(opencv_demo PROPERTIES CXX_STANDARD 11)
     install(TARGETS opencv_demo RUNTIME DESTINATION bin)
+# aprilgrid demo
+    add_executable(aprilgrid_demo example/aprilgrid_demo.cc)
+    target_link_libraries(aprilgrid_demo apriltag ${OpenCV_LIBRARIES})
+    set_target_properties(aprilgrid_demo PROPERTIES CXX_STANDARD 11)
+    install(TARGETS aprilgrid_demo RUNTIME DESTINATION bin)
 endif(OpenCV_FOUND)
 
 # install example programs
