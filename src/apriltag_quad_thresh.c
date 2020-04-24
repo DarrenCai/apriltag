@@ -1309,6 +1309,40 @@ image_u8_t *threshold(apriltag_detector_t *td, image_u8_t *im)
         image_u8_destroy(tmp);
     }
 
+    //erode black region for aprilgrid
+    if (td->qtp.erode)
+    {
+        image_u8_t *tmp = image_u8_create(w, h);
+        memcpy(tmp->buf, threshim->buf, sizeof(uint8_t) * w * h);
+
+        for (int y = 1; y + 1 < h; y++)
+        {
+            for (int x = 1; x + 1 < w; x++)
+            {
+                uint8_t m = tmp->buf[(y + 0) * s + x + 0];
+
+                if (m == 0)
+                {
+                    uint8_t u = tmp->buf[(y - 1) * s + x + 0];
+                    uint8_t d = tmp->buf[(y + 1) * s + x + 0];
+                    uint8_t l = tmp->buf[(y + 0) * s + x - 1];
+                    uint8_t r = tmp->buf[(y + 0) * s + x + 1];
+
+                    if (u == 255 || d == 255)
+                    {
+                        threshim->buf[y * s + x] = 255;
+                    }
+                    if (l == 255 || r == 255)
+                    {
+                        threshim->buf[y * s + x] = 255;
+                    }
+                }
+            }
+        }
+
+        image_u8_destroy(tmp);
+    }
+    
     timeprofile_stamp(td->tp, "threshold");
 
     return threshim;

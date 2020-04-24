@@ -118,6 +118,9 @@ struct apriltag_quad_thresh_params
     // should the thresholded image be deglitched? Only useful for
     // very noisy images
     int deglitch;
+
+    //erode black region for aprilgrid
+    int erode;
 };
 
 // Represents a detector object. Upon creating a detector, all fields
