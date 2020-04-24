@@ -1,7 +1,7 @@
 CC = gcc
 CXX = g++
 
-CPPFLAGS = -I..
+CPPFLAGS = -I.. -I../src
 CFLAGS = -g -std=gnu99 -Wall -Wno-unused-parameter -Wno-unused-function -O3
 CXXFLAGS = -g -Wall -O3
 LDFLAGS = -lpthread -lm

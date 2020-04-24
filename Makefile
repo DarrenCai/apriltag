@@ -6,8 +6,8 @@ AR = ar
 CFLAGS = -std=gnu99 -fPIC -Wall -Wno-unused-parameter -Wno-unused-function
 CFLAGS += -I. -O3 -fno-strict-overflow
 
-APRILTAG_SRCS := $(shell ls *.c common/*.c)
-APRILTAG_HEADERS := $(shell ls *.h common/*.h)
+APRILTAG_SRCS := $(shell ls src/*.c common/*.c)
+APRILTAG_HEADERS := $(shell ls src/*.h common/*.h)
 APRILTAG_OBJS := $(APRILTAG_SRCS:%.c=%.o)
 TARGETS := libapriltag.a libapriltag.so
 
