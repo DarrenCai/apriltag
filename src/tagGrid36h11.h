@@ -25,8 +25,8 @@ of the authors and should not be interpreted as representing official policies,
 either expressed or implied, of the Regents of The University of Michigan.
 */
 
-#ifndef _TAG36H11
-#define _TAG36H11
+#ifndef _TAGGRID36H11
+#define _TAGGRID36H11
 
 #include "apriltag.h"
 
